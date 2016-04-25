@@ -1,0 +1,9 @@
+#!/bin/bash
+
+project=/var/www/bot.loc
+bot=/usr/local/bin/bot
+
+cd ${project}
+cp bash/bot ${bot}
+chmod 755 ${bot}
+composer install

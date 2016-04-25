@@ -1,0 +1,35 @@
+#!/bin/bash
+
+project=/var/www/bot.loc
+web=${project}/web
+
+if [ $# -eq 0 ] ; then
+    echo 'Uploader Bot1123'
+    echo 'Usage:'
+    echo -e '\tcommand [arguments]'
+    echo 'Available commands:'
+    echo -e '\tschedule [{IMAGE_DIR_PATH}]\t\tAdd filenames to resize queue'
+    echo -e '\tresize [-n {COUNT}]\t\tResize next images from the queue'
+    echo -e '\tupload [-n {COUNT}]\t\tUpload next images to remote storage'
+    echo -e '\tretry [-n {COUNT}]\t\tMoves all URLs from failed queue back to resize queue'
+    echo -e '\tstatus\tOutput current status in format %queue%:%number_of_images%'
+    exit 0
+fi
+
+case "$1" in
+    schedule)
+        if [ -z $2 ] ; then
+                echo "No argument supplied"
+                exit 0
+        fi
+        php ${web}/schedule.php $2 ;;
+    resize)
+        php ${web}/resize.php $* ;;
+    upload)
+        php ${web}/upload.php $* ;;
+    status)
+        php ${web}/status.php ;;
+    retry)
+        php ${web}/retry.php ;;
+    *) echo "Command \`$1\` is not exist" ;;
+esac

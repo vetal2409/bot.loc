@@ -1,0 +1,16 @@
+{
+  "name": "bot",
+  "description": "Test task",
+  "authors": [
+    {
+      "name": "Vetal",
+      "email": "vetal.sydo@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "pda/pheanstalk": "^3.1",
+    "intervention/image": "^2.3",
+    "dropbox/dropbox-sdk": "1.1.*"
+  }
+}
