@@ -3,8 +3,8 @@
 
 ### Requirements ###
 * [PHP 5.4.0 or higher](http://www.php.net/)
-* [VirtualBox 5 or higher](https://www.vagrantup.com/)
-* [Vagrant 1.8.x or higher](https://www.virtualbox.org/)
+* [VirtualBox 5 or higher](https://www.virtualbox.org/)
+* [Vagrant 1.8.x or higher](https://www.vagrantup.com/)
 
 
 ### Installation ###
