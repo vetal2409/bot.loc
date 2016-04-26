@@ -25,3 +25,5 @@
 * `bot upload [-n {COUNT}]`            Upload next images to remote storage
 * `bot retry [-n {COUNT}]`             Moves all URLs from failed queue back to resize queue
 * `bot status`                         Output current status in format %queue%:%number_of_images%
+
+* [Check DropBox directory](https://www.dropbox.com/sh/dlmrdu2ihrb4i13/AABSW3nndDM2AdLugvSQ-bj1a?dl=0)

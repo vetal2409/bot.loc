@@ -43,6 +43,9 @@ class Resizer extends Base
         while (($limit === 0 || $limit !== $itemsNumber) && $this->fromQueue->getCount() > 0) {
             $itemsNumber++;
             $queueItem = $this->fromQueue->getItem();
+            if (!file_exists($queueItem)) {
+                continue;
+            }
             $image = $manager->make($queueItem);
             $saveName = $savePath . '/' . $image->filename . '.jpg';
             $width = $widthNew = $this->config['width'];
@@ -64,7 +67,7 @@ class Resizer extends Base
                 ->resizeCanvas($width, $height, 'top-left', false, '#ffffff')
                 ->save($saveName);
             if ($imageNew instanceof Image) {
-                $this->toQueue->addItem($queueItem);
+                $this->toQueue->addItem($imageNew->basePath());
                 unlink($queueItem);
                 $count++;
             }
